@@ -4,18 +4,13 @@ project:
 website:
   title: "api"
   navbar:
+    pinned: true
     left:
       - href: index.qmd
         text: Home
       - about.qmd
 
 format:
-  html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
-    toc: true
-
+  ofce-html: default
 editor: visual
 
