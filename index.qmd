@@ -1,0 +1,7 @@
+---
+title: "api"
+---
+
+Un site (en construction) pour répertorier les guides, astuces, exemples de code etc afin de faciliter l'utilisation d'API via R.
+
+[Une petite présentation](pres.qmd)
