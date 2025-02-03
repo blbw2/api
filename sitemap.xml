@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blbw2.github.io/api/pres.html</loc>
-    <lastmod>2025-01-23T07:45:09.306Z</lastmod>
+    <lastmod>2025-01-23T08:00:17.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://blbw2.github.io/api/eurostat.html</loc>
+    <lastmod>2025-01-24T09:54:15.902Z</lastmod>
   </url>
   <url>
     <loc>https://blbw2.github.io/api/about.html</loc>
     <lastmod>2025-01-23T07:45:09.293Z</lastmod>
   </url>
   <url>
+    <loc>https://blbw2.github.io/api/codes.html</loc>
+    <lastmod>2025-02-03T12:25:03.174Z</lastmod>
+  </url>
+  <url>
     <loc>https://blbw2.github.io/api/index.html</loc>
-    <lastmod>2025-01-23T07:45:09.295Z</lastmod>
+    <lastmod>2025-01-23T07:54:27.847Z</lastmod>
   </url>
 </urlset>

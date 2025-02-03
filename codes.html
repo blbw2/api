@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>api</title>
+<title>Codes R – api</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,6 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-3b972208234f8efbf6498307fc3e7714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -87,11 +88,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./codes.html"> 
+    <a class="nav-link active" href="./codes.html" aria-current="page"> 
 <span class="menu-text">Téléchargement des codes</span></a>
   </li>  
 </ul>
@@ -116,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">api</h1>
+<h1 class="title">Codes R</h1>
 </div>
 
 
@@ -133,8 +134,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Un site (en construction) pour répertorier les guides, astuces, exemples de code etc afin de faciliter l’utilisation d’API via R.</p>
-<p><a href="./pres.html">Une petite présentation</a></p>
+<p>Quelques codes-types pour se lancer dans l’utilisation de diverses <span style="white-space:nowrap">API :</span></p>
+<ul>
+<li><span style="white-space:nowrap">DBnomics :</span></li>
+</ul>
+<p><a href="#dnldts42974" onclick="fetch('data:text/plain;base64,bGlicmFyeSh0aWR5dmVyc2UpDQpsaWJyYXJ5KHJkYm5vbWljcykNCg0KaW1mX2RhdGFzZXRzIDwtIHJkYl9kYXRhc2V0cyhwcm92aWRlcl9jb2RlID0gIklNRiIpW1siSU1GIl1dDQppbWZfZGF0YXNlcmllcyA8LSByZGJfc2VyaWVzKHByb3ZpZGVyX2NvZGUgPSAiSU1GIiwgZGF0YXNldF9jb2RlID0gIldFTzoyMDI0LTEwIiwgc2ltcGxpZnkgPSBUUlVFKQ0KDQppbWZfc29sZGVzcHJpbSA8LSByZGIoIklNRiIsICJXRU86MjAyNC0xMCIsIG1hc2sgPSAiRlJBK0lUQS5HR1hPTkxCX05HRFAucGNlbnRfZ2RwIikNCg==').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'file.R'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="dnldts42974"><i class="bi bi-download"></i> Télécharger </button></a></p>
 
 
 

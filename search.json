@@ -2,105 +2,105 @@
   {
     "objectID": "pres.html#les-api",
     "href": "pres.html#les-api",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Les API ?",
     "text": "Les API ?\n\nPar API, on va désigner les modalités mises en place par une institution pour avoir accès à ses données, en formulant des requêtes, qui permettent de récupérer lesdites données directement sur R.\nUne API permet une communication directe aux serveurs de l’institution, et via ceux-ci à ses propres dépôts de données, au moyen de code exécutable."
   },
   {
     "objectID": "pres.html#les-portails",
     "href": "pres.html#les-portails",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Les « portails »",
     "text": "Les « portails »\n\nUne autre manière de récupérer des données : se rendre sur le site d’un institut statistique, puis naviguer jusqu’à trouver une série, et enfin cliquer sur un bouton de téléchargement (le plus souvent au format exc*l).\n\n\nExemple d’un téléchargement manuel : portail Eurostat"
   },
   {
     "objectID": "pres.html#api-et-portails",
     "href": "pres.html#api-et-portails",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "API et portails",
-    "text": "API et portails\n\nL’opposition API/portail n’est en réalité pas fondée\n\nLorsqu’on accède au portail, en réalité on accède aussi à l’API, juste par une manière plus « clique-bouton ».\nSurtout, comme on va le voir dans les cas pratiques, il est généralement extrêmement utile d’avoir le portail ouvert sur un onglet lorsqu’on prépare ses requêtes API."
+    "text": "API et portails\n\nL’opposition API/portail est assez artificielle :\n\nLorsqu’on accède au portail, en réalité on accède aussi à l’API, juste par une manière plus « clique-bouton ».\nSurtout, comme on va le voir dans les cas pratiques, il est généralement extrêmement utile d’avoir le portail ouvert sur un onglet lorsqu’on prépare ses requêtes API."
   },
   {
     "objectID": "pres.html#est-ce-que-cest-dur",
     "href": "pres.html#est-ce-que-cest-dur",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Est-ce que c’est dur ?",
-    "text": "Est-ce que c’est dur ?\n(Mon ressenti personnel) : pas vraiment, au sens où il n’y a pas besoin d’être compétent en informatique etc. Par contre ça peut être très frustrant, voire paraître incompréhensible au début.\n\nNotamment parce qu’au début, R va surtout renvoyer des messages peu encourageants du type ERROR 404 : REQUEST NOT FOUND .\nTandis que la documentation API fournie par les instituts est souvent trop élémentaire/technique/détaillée, et pas assez « voici un exemple d’une requête qui marche, et qui peut facilement être réadaptée ».\n\nLes instituts statistiques ont des API et des portails (et des liens entre les deux) plus ou moins harmonisés.\n\nEn général il faut quelques heures au moins pour se familiariser avec l’organisation d’un institut, sans parler des particularités en termes d’élaboration des comptes nationaux ou autres variables d’intérêts propres au pays/à l’institution…\n\nPar contre, une fois que le coût d’entrée pour se familiariser avec l’API etc a été payé, et que l’infrastructure de codes a été mise en place :\n\nCa marche bien, c’est généralement fiable, c’est rapide ;\nOn peut assez facilement aller chercher des jeux de données qu’on ne connaissait pas avant une fois qu’on sait faire une requête."
+    "text": "Est-ce que c’est dur ?\n(Mon ressenti personnel) : pas vraiment, au sens où il n’y a pas besoin d’être compétent en informatique etc. Par contre ça peut être très frustrant, voire paraître incompréhensible au début.\n\nNotamment parce qu’au début, R va surtout renvoyer des messages peu encourageants du type ERROR 404 : REQUEST NOT FOUND.\nTandis que la documentation API fournie par les instituts est souvent trop élémentaire/technique/détaillée, et pas assez « voici un exemple d’une requête qui marche, et qui peut facilement être réadaptée ».\n\nLes instituts statistiques ont des API et des portails (et des liens entre les deux) plus ou moins harmonisés.\n\nEn général il faut quelques heures au moins pour se familiariser avec le fonctionnement d’une API, sans parler des particularités en termes d’élaboration des comptes nationaux ou autres variables d’intérêts propres au pays/à l’institution…\n\nPar contre, une fois que le coût d’entrée pour se familiariser avec l’API etc a été payé, et que l’infrastructure de codes a été mise en place :\n\nCa marche bien, c’est fiable et rapide ;\nOn peut assez facilement aller chercher des jeux de données qu’on ne connaissait pas avant."
   },
   {
     "objectID": "pres.html#quelques-mots-sur-eurostat",
     "href": "pres.html#quelques-mots-sur-eurostat",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Quelques mots sur Eurostat",
-    "text": "Quelques mots sur Eurostat\n\nEurostat est une bonne source pour tout ce qui a trait aux comptes nationaux.\n\nMis à jour rapidement (au pire quelques jours de délais après la publication des comptes par l’institut national) ;\nLe package eurostat est facile d’utilisation, et construire ses propres requêtes est simple.\nLe portail est bien fait et assez réactif, le seul défaut est peut-être son arborescence pas forcément intuitive (au début).\n\nPar contre, Eurostat se limite à ce qui est harmonisé et commun aux Etats-membres de l’UE.\n\nExit donc, par ex., les ventilations fines de l’INSEE…\nEt pas question de retrouver toutes les données spécifiques aux choix de statistique publique des pays : les séries relatives au marché du travail notamment."
+    "text": "Quelques mots sur Eurostat\n\nEurostat est une bonne source pour tout ce qui a trait aux comptes nationaux et autres données harmonisées (enquêtes force de travail…).\n\nMis à jour rapidement (au pire quelques jours de délais après la publication des comptes par l’institut national) ;\nLe package eurostat est facile d’utilisation, et construire ses propres requêtes est simple.\nLe portail est bien fait et assez réactif, le seul défaut est peut-être son arborescence pas forcément intuitive (au début).\n\nPar contre, Eurostat se limite à ce qui est harmonisé et commun aux Etats-membres de l’UE.\n\nExit donc, par ex., les ventilations fines de l’INSEE…\nEt pas question de retrouver toutes les données spécifiques aux choix de statistique publique des pays : les séries relatives au marché du travail notamment."
   },
   {
     "objectID": "pres.html#en-utilisant-le-package-eurostat",
     "href": "pres.html#en-utilisant-le-package-eurostat",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "En utilisant le package eurostat",
     "text": "En utilisant le package eurostat\nC.f. l’exemple de code.\nSi la recherche de jeux de données sur R, via les fonctions d’eurostat, ne vous convient pas, on peut très bien commencer sur le portail :\n\nAller sur le site eurostat, faire dérouler l’onglet « Données » puis cliquer sur « Base de données ».\nNaviguer au sein de l’arborescence jusqu’à trouver le jeu de données voulu.\n(S’assurer que les données correspondent bien à ce que l’on cherchait !)\nFaire afficher les codes (c.f. capture d’écran), puis filtrer le jeu de données à sa convenance ; les identifiants des dimensions possibles (pays, unité de mesure, secteur…) et les codes des différentes modalités sont ensuite utilisées par la fonction get_eurostat()."
   },
   {
     "objectID": "pres.html#une-requête-avec-eurostat",
     "href": "pres.html#une-requête-avec-eurostat",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Une requête avec eurostat",
     "text": "Une requête avec eurostat\nOn récupère les identifiants des dimensions et les codes des modalités…"
   },
   {
     "objectID": "pres.html#une-requête-avec-eurostat-1",
     "href": "pres.html#une-requête-avec-eurostat-1",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Une requête avec eurostat",
     "text": "Une requête avec eurostat\n\ngdpq_filter &lt;- list(geo = \"DE\", \n                    s_adj = \"SCA\",\n                    na_item = \"B1GQ\",\n                    unit = c(\"CLV_MEUR20\", \"CP_MEUR\"),\n                    sinceTimePeriod = \"2019-Q4\",\n                    untilTimePeriod = \"2024-Q4\")\n\nestat_gdpq_DE &lt;- get_eurostat(id = \"namq_10_gdp\",\n                              filter = gdpq_filter)\n\nestat_gdpq_DE |&gt; head()\n\n# A tibble: 6 × 7\n  freq  unit    s_adj na_item geo   time       values\n  &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;date&gt;      &lt;dbl&gt;\n1 Q     CP_MEUR SCA   B1GQ    DE    2019-10-01 894560\n2 Q     CP_MEUR SCA   B1GQ    DE    2020-01-01 881485\n3 Q     CP_MEUR SCA   B1GQ    DE    2020-04-01 809073\n4 Q     CP_MEUR SCA   B1GQ    DE    2020-07-01 867876\n5 Q     CP_MEUR SCA   B1GQ    DE    2020-10-01 884210\n6 Q     CP_MEUR SCA   B1GQ    DE    2021-01-01 886534"
   },
   {
     "objectID": "pres.html#le-standard-sdmx",
     "href": "pres.html#le-standard-sdmx",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Le standard SDMX",
     "text": "Le standard SDMX\n\nSDMX est un standard de dissémination de données, porté notamment par certaines institutions telles qu’Eurostat, le FMI, l’OCDE, la BRI…\nSDMX implique donc une certaine harmonisation dans l’organisation des API, et surtout dans la structure des requêtes qu’on peut leur envoyer.\n\nCette harmonisation est loin d’être complète ! Elle permet néanmoins que les habitudes acquies pour construire une requête vers une API SDMX se transfèrent assez bien aux autres."
   },
   {
     "objectID": "pres.html#la-structure-dune-requête-sdmx",
     "href": "pres.html#la-structure-dune-requête-sdmx",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "La structure d’une requête SDMX",
     "text": "La structure d’une requête SDMX\n\nLes institutions ayant une API ont sur leurs sites une/des page(s) expliquant le fonctionnement de celle-ci. On trouvera notamment des éléments sur la structure des requêtes (ne pas hésiter à googler !).\nOn va travailler ici à partir de l’API de l’OCDE, pour laquelle la structure d’une requête est la suivante :"
   },
   {
     "objectID": "pres.html#la-structure-dune-requête-sdmx-1",
     "href": "pres.html#la-structure-dune-requête-sdmx-1",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "La structure d’une requête SDMX",
     "text": "La structure d’une requête SDMX\nOn a donc une série d’éléments à définir pour construire une requête :\n\nl’URL de l’hôte (ou « endpoint ») : sert de base à toutes les requêtes vers une API donnée, et assez facile à trouver sur le site de l’institution.\nl’agence productrice des données ;\nl’identifiant du dataset ;\nla version du dataset (optionnelle)\nla clé/key (ici « Data selection »).\n\nIl y a une certaine variabilité dans les structures de requêtes, selon les institutions.\n\nLes deux constantes sont la présence de l’URL de l’hôte, la nécessité d’inclure un identifiant de dataset (ou dataflow), et la clé."
   },
   {
     "objectID": "pres.html#utiliser-un-portail-pour-créer-sa-requête-sdmx",
     "href": "pres.html#utiliser-un-portail-pour-créer-sa-requête-sdmx",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Utiliser un portail pour créer sa requête SDMX",
     "text": "Utiliser un portail pour créer sa requête SDMX\nIdentifier le jeu de données (chaque institution regroupe ses séries à sa propre façon…), récupérer son identifiant, puis comprendre la structure de sa clé et cibler les modalités des dimensions est ce qui prend le plus de temps.\nDans le cas de l’OCDE, et dans une certaine mesure pour les autres institutions également, on peut facilement construire une requête à partir du portail :\n\nIci on peut même carrément copier la requête et la copier, puis lancer la requête via la fonction read_SDMX(). Si on souhaite ajuster la requête, il suffit de modifier les paramètres de filtrage (à gauche sur la capture d’écran)."
   },
   {
     "objectID": "pres.html#construire-sa-propre-requête-en-restant-autant-que-possible-sur-r.",
     "href": "pres.html#construire-sa-propre-requête-en-restant-autant-que-possible-sur-r.",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Construire sa propre requête en restant (autant que possible) sur R.",
     "text": "Construire sa propre requête en restant (autant que possible) sur R.\n\nNéanmoins, toutes les institutions n’ont pas un portail aussi bien conçu que l’OCDE. Par ailleurs, à terme, on gagne quand même à se familiariser avec la structure d’une API en termes de temps pour construire une nouvelle requête et de compréhension de l’outil qu’on utilise pour récupérer ses données.\n\nLa séquence habituelle pour construire sa requête est la suivante :\n\nTrouver, généralement sur le site de l’institution, le endpoint de l’API, sa syntaxe, et les nuances dans les requêtes pour données vs métadonnées de structure.\nRécupérer la liste de tous les jeux de données : identifier celui qui contient les séries recherchées.\nRécupérer la DSD de ce jeu de données.\nRécupérer les codes pour les modalités des dimensions de ce jeu de données.\n\nNe pas hésiter à s’aider du portail lorsque cela est possible !\n\nPar exemple, pour s’assurer d’être sur le bon jeu de données : l’arborescence d’un portail peut être intuitive et donc faciliter la recherche ; et permet en plus de jeter un coup d’oeil aux valeurs pour vérifier qu’on est au bon endroit.\nCe n’est pas garanti, mais les listes de codes que renvoient les API sont souvent trop larges (par exemple, pour la dimension « Unité » on trouvera 700+ codes différents mélangeants masse, devise, pourcentage…). Sur les portails, seuls les codes pertinents pour une série seront listés."
   },
   {
     "objectID": "pres.html#dbnomics",
     "href": "pres.html#dbnomics",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "DBnomics",
     "text": "DBnomics\nDBnomics centralise les données disséminées par un certain nombre d’institutions, du type FMI OCDE ainsi qu’une grande partie des instituts statistiques européens.\n\nGrand avantage : DBnomics a son propre package, et une manière homogène de formuler des requêtes vers son API. Le site est facile à naviguer et récupérer les identifiants de série, les codes pour filtrer une série etc ne pose pas de problème.\n\nEn revanche, pour une institution donnée, DBnomics va reproduire son organisation, sa hierarchisation des données, ses noms de variables etc. Donc il faut quand même passer du temps à se familiariser avec ces éléments.\n\nPrincipal défaut de DBnomics : pour certaines API, il peut y avoir des délais dans la mise à jour des données. Parfois, il semble même que DBnomics interrompe son suivi d’une API (l’OCDE pendant quelques mois, par ex.)."
   },
   {
     "objectID": "pres.html#quelques-observations-sur-les-api",
     "href": "pres.html#quelques-observations-sur-les-api",
-    "title": "Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE",
+    "title": "Se lancer dans l’acquisition de données par une API",
     "section": "Quelques observations sur les API :",
     "text": "Quelques observations sur les API :\n\nBCE, BRI : j’ai peu d’expérience avec, mais elles marchent bien. Leurs portails soient moins bien conçus qu’ESTAT ou l’OCDE, donc construire ses requêtes peut être un peu plus fastidieux.\nINE : on peut construire ses requêtes directement à partir du portail. Il y a un package R (INEapir) maintenu par l’INE, avec une cheat sheet résumant les fonctionnalités.\nDestatis : le package restatis est utile… Mais le portail n’est pas très bien conçu, et certaines données visibles sur le portail ne sont pas structurées de la même manière sur l’API.\nONS : leur API est en cours de développement, seule une petite partie de leurs données sont accessibles. Privilégier l’OCDE (ou DBnomics, mais il semble qu’il y ait un délai de plusieurs jours voire une semaine.)"
   },
@@ -110,6 +110,13 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "codes.html",
+    "href": "codes.html",
+    "title": "Codes R",
+    "section": "",
+    "text": "Quelques codes-types pour se lancer dans l’utilisation de diverses API :\n\nDBnomics :\n\n Télécharger"
   },
   {
     "objectID": "index.html",

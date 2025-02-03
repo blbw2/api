@@ -12,7 +12,7 @@
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.40">
 
-  <title>api – Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE</title>
+  <title>api – Se lancer dans l’acquisition de données par une API</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -194,13 +194,13 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE</h1>
+  <h1 class="title">Se lancer dans l’acquisition de données par une API</h1>
   <p class="subtitle">Morning Meeting</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">jeudi 23 janvier 2025</p>
+  <p class="date">lundi 3 février 2025</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Plan de la présentation</h2>
@@ -250,7 +250,7 @@
 <section id="api-et-portails" class="slide level2">
 <h2>API et portails</h2>
 <ul>
-<li><p>L’opposition API/portail n’est en réalité pas fondée</p>
+<li><p>L’opposition API/portail est assez artificielle :</p>
 <ul>
 <li>Lorsqu’on accède au portail, en réalité on accède aussi à l’API, juste par une manière plus « clique-bouton ».</li>
 <li>Surtout, comme on va le voir dans les cas pratiques, <strong>il est généralement extrêmement utile d’avoir le portail ouvert sur un onglet lorsqu’on prépare ses requêtes API</strong>.</li>
@@ -261,17 +261,17 @@
 <h2>Est-ce que c’est dur ?</h2>
 <p>(Mon ressenti personnel) : pas vraiment, au sens où il n’y a pas besoin d’être compétent en informatique etc. Par contre ça peut être très frustrant, voire paraître incompréhensible au début.</p>
 <ul>
-<li>Notamment parce qu’au début, R va surtout renvoyer des messages peu encourageants du type <span style="color:red;">ERROR 404 : REQUEST NOT FOUND </span>.</li>
+<li>Notamment parce qu’au début, R va surtout renvoyer des messages peu encourageants du type <span style="color:red;">ERROR 404 : REQUEST NOT FOUND</span>.</li>
 <li>Tandis que la documentation API fournie par les instituts est souvent trop élémentaire/technique/détaillée, et pas assez « voici un exemple d’une requête qui marche, et qui peut facilement être réadaptée ».</li>
 </ul>
 <p>Les instituts statistiques ont des API et des portails (et des liens entre les deux) plus ou moins harmonisés.</p>
 <ul>
-<li>En général il faut quelques heures au moins pour se familiariser avec l’organisation d’un institut, sans parler des particularités en termes d’élaboration des comptes nationaux ou autres variables d’intérêts propres au pays/à l’institution…</li>
+<li>En général il faut quelques heures au moins pour se familiariser avec le fonctionnement d’une API, sans parler des particularités en termes d’élaboration des comptes nationaux ou autres variables d’intérêts propres au pays/à l’institution…</li>
 </ul>
 <p>Par contre, <em>une fois que le coût d’entrée pour se familiariser avec l’API etc a été payé, et que l’infrastructure de codes a été mise en place</em> :</p>
 <ul>
-<li>Ca marche bien, c’est généralement fiable, c’est rapide ;</li>
-<li>On peut assez facilement aller chercher des jeux de données qu’on ne connaissait pas avant une fois qu’on sait faire une requête.</li>
+<li>Ca marche bien, c’est fiable et rapide ;</li>
+<li>On peut assez facilement aller chercher des jeux de données qu’on ne connaissait pas avant.</li>
 </ul>
 </section></section>
 <section>
@@ -298,7 +298,7 @@
 <section id="quelques-mots-sur-eurostat" class="slide level2">
 <h2>Quelques mots sur Eurostat</h2>
 <ul>
-<li><strong>Eurostat est une bonne source pour tout ce qui a trait aux comptes nationaux.</strong>
+<li><strong>Eurostat est une bonne source pour tout ce qui a trait aux comptes nationaux et autres données harmonisées (enquêtes force de travail…).</strong>
 <ul>
 <li>Mis à jour rapidement (au pire quelques jours de délais après la publication des comptes par l’institut national) ;</li>
 <li>Le package <code>eurostat</code> est facile d’utilisation, et construire ses propres requêtes est simple.</li>
@@ -479,7 +479,7 @@
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="_extensions/ofce/pres/ofce_m.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Se lancer dans l’utilisation d’une API : l’exemple de l’OCDE <i class="fa-solid fa-ellipsis" aria-label="ellipsis"></i> </p>
+<p>Se lancer dans l’acquisition de données par une API <i class="fa-solid fa-ellipsis" aria-label="ellipsis"></i> </p>
 </div>
 </div></div>
 
