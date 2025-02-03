@@ -8,8 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-    left:
-      -href: codes.qmd
+      - href: codes.qmd
         text: "Téléchargement des codes"
 
 format:
