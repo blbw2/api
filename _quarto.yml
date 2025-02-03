@@ -9,6 +9,9 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+    left:
+      -href: codes.qmd
+        text: "Téléchargement des codes"
 
 format:
   ofce-html: default
