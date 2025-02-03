@@ -4,6 +4,25 @@ title: "Codes R"
 
 Quelques codes-types pour se lancer dans l'utilisation de diverses API :
 
+  - BRI : 
+{{< downloadthis bis.R label= "Télécharger" icon = >}}
+  
+  - Destatis :
+{{< downloadthis destatis.R label= "Télécharger" icon = >}}
+
   - DBnomics :
   
 {{< downloadthis dbnomics.R label= "Télécharger" icon = >}}
+
+  - Eurostat :
+{{< downloadthis estat.R label= "Télécharger" icon = >}}
+
+  - INSEE :
+{{< downloadthis insee.R label= "Télécharger" icon = >}}
+
+  - OCDE : 
+{{< downloadthis insee.R label= "Télécharger" icon = >}}
+ 
+  - ONS :
+  
+{{< downloadthis ons.R label= "Télécharger" icon = >}}
