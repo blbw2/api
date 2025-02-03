@@ -1,0 +1,9 @@
+---
+title: "Codes R"
+---
+
+Quelques codes-types pour se lancer dans l'utilisation de diverses API :
+
+  - DBnomics :
+  
+{{< downloadthis dbnomics.R label= "Télécharger" icon = >}}

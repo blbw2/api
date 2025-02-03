@@ -1,5 +1,5 @@
 ---
-title: "Se lancer dans l'utilisation d'une API : l'exemple de l'OCDE"
+title: "Se lancer dans l'acquisition de données par une API"
 subtitle: "Morning Meeting"
 institution: "Observatoire Français des Conjonctures Économiques"
 date: today
@@ -19,57 +19,54 @@ library(rsdmx)
 library(eurostat)
 ```
 
-# Introduction 
-
+# Introduction
 
 ## Les API ?
 
-- **Par API, on va désigner les modalités mises en place par une institution pour avoir accès à ses données, en formulant des *requêtes*, qui permettent de récupérer lesdites données directement sur R**.
-  
-- Une API permet une communication directe aux serveurs de l'institution, et via ceux-ci à ses propres dépôts de données, au moyen de code exécutable.
+-   **Par API, on va désigner les modalités mises en place par une institution pour avoir accès à ses données, en formulant des *requêtes*, qui permettent de récupérer lesdites données directement sur R**.
+
+-   Une API permet une communication directe aux serveurs de l'institution, et via ceux-ci à ses propres dépôts de données, au moyen de code exécutable.
 
 ## Les "portails"
 
-- Une autre manière de récupérer des données : se rendre sur le site d'un institut statistique, puis naviguer jusqu'à trouver une série, et enfin cliquer sur un bouton de téléchargement (le plus souvent au format exc*l).
+-   Une autre manière de récupérer des données : se rendre sur le site d'un institut statistique, puis naviguer jusqu'à trouver une série, et enfin cliquer sur un bouton de téléchargement (le plus souvent au format exc\*l).
 
 ![Exemple d'un téléchargement manuel : portail Eurostat](portail_dl.png)
 
 ## API et portails
 
-- L'opposition API/portail n'est en réalité pas fondée
+-   L'opposition API/portail est assez artificielle :
 
-  - Lorsqu'on accède au portail, en réalité on accède aussi à l'API, juste par une manière plus "clique-bouton".
-  - Surtout, comme on va le voir dans les cas pratiques, **il est généralement extrêmement utile d'avoir le portail ouvert sur un onglet lorsqu'on prépare ses requêtes API**.
+    -   Lorsqu'on accède au portail, en réalité on accède aussi à l'API, juste par une manière plus "clique-bouton".
+    -   Surtout, comme on va le voir dans les cas pratiques, **il est généralement extrêmement utile d'avoir le portail ouvert sur un onglet lorsqu'on prépare ses requêtes API**.
 
 ## Est-ce que c'est dur ?
 
 (Mon ressenti personnel) : pas vraiment, au sens où il n'y a pas besoin d'être compétent en informatique etc. Par contre ça peut être très frustrant, voire paraître incompréhensible au début.
 
-- Notamment parce qu'au début, R va surtout renvoyer des messages peu encourageants du type <span style="color:red;">ERROR 404 : REQUEST NOT FOUND </span>.
-- Tandis que la documentation API fournie par les instituts est souvent trop élémentaire/technique/détaillée, et pas assez "voici un exemple d'une requête qui marche, et qui peut facilement être réadaptée".
-
+-   Notamment parce qu'au début, R va surtout renvoyer des messages peu encourageants du type [ERROR 404 : REQUEST NOT FOUND ]{style="color:red;"}.
+-   Tandis que la documentation API fournie par les instituts est souvent trop élémentaire/technique/détaillée, et pas assez "voici un exemple d'une requête qui marche, et qui peut facilement être réadaptée".
 
 Les instituts statistiques ont des API et des portails (et des liens entre les deux) plus ou moins harmonisés.
 
-  - En général il faut quelques heures au moins pour se familiariser avec l'organisation d'un institut, sans parler des particularités en termes d'élaboration des comptes nationaux ou autres variables d'intérêts propres au pays/à l'institution...
-  
+-   En général il faut quelques heures au moins pour se familiariser avec le fonctionnement d'une API, sans parler des particularités en termes d'élaboration des comptes nationaux ou autres variables d'intérêts propres au pays/à l'institution...
+
 Par contre, *une fois que le coût d'entrée pour se familiariser avec l'API etc a été payé, et que l'infrastructure de codes a été mise en place* :
 
-  - Ca marche bien, c'est généralement fiable, c'est rapide ;
-  - On peut assez facilement aller chercher des jeux de données qu'on ne connaissait pas avant une fois qu'on sait faire une requête.
-  
+-   Ca marche bien, c'est fiable et rapide ;
+-   On peut assez facilement aller chercher des jeux de données qu'on ne connaissait pas avant.
+
 # Requêtes à l'API d'Eurostat
 
-## Quelques mots sur Eurostat 
+## Quelques mots sur Eurostat
 
-- **Eurostat est une bonne source pour tout ce qui a trait aux comptes nationaux.**
-  - Mis à jour rapidement (au pire quelques jours de délais après la publication des comptes par l'institut national) ;
-  - Le package `eurostat` est facile d'utilisation, et construire ses propres requêtes est simple.
-  - Le portail est bien fait et assez réactif, le seul défaut est peut-être son arborescence pas forcément intuitive (au début).
-  
-- **Par contre, Eurostat se limite à ce qui est harmonisé et commun aux Etats-membres de l'UE**.
-  - Exit donc, par ex., les ventilations fines de l'INSEE...
-  - Et pas question de retrouver toutes les données spécifiques aux choix de statistique publique des pays : les séries relatives au marché du travail notamment.
+-   **Eurostat est une bonne source pour tout ce qui a trait aux comptes nationaux et autres données harmonisées (enquêtes force de travail...).**
+    -   Mis à jour rapidement (au pire quelques jours de délais après la publication des comptes par l'institut national) ;
+    -   Le package `eurostat` est facile d'utilisation, et construire ses propres requêtes est simple.
+    -   Le portail est bien fait et assez réactif, le seul défaut est peut-être son arborescence pas forcément intuitive (au début).
+-   **Par contre, Eurostat se limite à ce qui est harmonisé et commun aux Etats-membres de l'UE**.
+    -   Exit donc, par ex., les ventilations fines de l'INSEE...
+    -   Et pas question de retrouver toutes les données spécifiques aux choix de statistique publique des pays : les séries relatives au marché du travail notamment.
 
 ## En utilisant le package `eurostat`
 
@@ -77,17 +74,14 @@ C.f. l'exemple de code.
 
 Si la recherche de jeux de données sur R, via les fonctions d'`eurostat`, ne vous convient pas, on peut très bien commencer sur le portail :
 
-- Aller sur le site eurostat, faire dérouler l'onglet "Données" puis cliquer sur "Base de données".
-- Naviguer au sein de l'arborescence jusqu'à trouver le jeu de données voulu.
-- (S'assurer que les données correspondent bien à ce que l'on cherchait !)
-- Faire afficher les codes (c.f. capture d'écran), puis filtrer le jeu de données à sa convenance ; les identifiants des dimensions possibles (pays, unité de mesure, secteur...) et les codes des différentes modalités sont ensuite utilisées par la fonction `get_eurostat()`.
+-   Aller sur le site eurostat, faire dérouler l'onglet "Données" puis cliquer sur "Base de données".
+-   Naviguer au sein de l'arborescence jusqu'à trouver le jeu de données voulu.
+-   (S'assurer que les données correspondent bien à ce que l'on cherchait !)
+-   Faire afficher les codes (c.f. capture d'écran), puis filtrer le jeu de données à sa convenance ; les identifiants des dimensions possibles (pays, unité de mesure, secteur...) et les codes des différentes modalités sont ensuite utilisées par la fonction `get_eurostat()`.
 
-## Une requête avec `eurostat` 
+## Une requête avec `eurostat`
 
-
-
-On récupère les identifiants des dimensions et les codes des modalités...
-![](portail_ids.png)
+On récupère les identifiants des dimensions et les codes des modalités... ![](portail_ids.png)
 
 ## Une requête avec `eurostat`
 
@@ -110,35 +104,34 @@ estat_gdpq_DE |> head()
 
 ## Le standard SDMX
 
-- **SDMX est un standard de dissémination de données, porté notamment par certaines institutions telles qu'Eurostat, le FMI, l'OCDE, la BRI...**
+-   **SDMX est un standard de dissémination de données, porté notamment par certaines institutions telles qu'Eurostat, le FMI, l'OCDE, la BRI...**
 
-- **SDMX implique donc une certaine harmonisation dans l'organisation des API, et surtout dans la structure des requêtes qu'on peut leur envoyer**.
-  - Cette harmonisation est loin d'être complète ! Elle permet néanmoins que les habitudes acquies pour construire une requête vers une API SDMX se transfèrent assez bien aux autres.
-  
+-   **SDMX implique donc une certaine harmonisation dans l'organisation des API, et surtout dans la structure des requêtes qu'on peut leur envoyer**.
+
+    -   Cette harmonisation est loin d'être complète ! Elle permet néanmoins que les habitudes acquies pour construire une requête vers une API SDMX se transfèrent assez bien aux autres.
+
 ## La structure d'une requête SDMX
 
-- Les institutions ayant une API ont sur leurs sites une/des page(s) expliquant le fonctionnement de celle-ci. On trouvera notamment des éléments sur la structure des requêtes (ne pas hésiter à googler !).
+-   Les institutions ayant une API ont sur leurs sites une/des page(s) expliquant le fonctionnement de celle-ci. On trouvera notamment des éléments sur la structure des requêtes (ne pas hésiter à googler !).
 
-- **On va travailler ici à partir de l'API de l'OCDE**, pour laquelle la structure d'une requête est la suivante :
+-   **On va travailler ici à partir de l'API de l'OCDE**, pour laquelle la structure d'une requête est la suivante :
 
 ![](oecd_dataquery.png)
 
-
 ## La structure d'une requête SDMX
-
 
 On a donc une série d'éléments à définir pour construire une requête :
 
-- l'URL de l'hôte (ou "endpoint") : sert de base à toutes les requêtes vers une API donnée, et assez facile à trouver sur le site de l'institution.
-- l'agence productrice des données ;
-- l'identifiant du *dataset* ;
-- la version du dataset (optionnelle)
-- la **clé/*key*** (ici "Data selection").
+-   l'URL de l'hôte (ou "endpoint") : sert de base à toutes les requêtes vers une API donnée, et assez facile à trouver sur le site de l'institution.
+-   l'agence productrice des données ;
+-   l'identifiant du *dataset* ;
+-   la version du dataset (optionnelle)
+-   la **clé/*key*** (ici "Data selection").
 
 Il y a une certaine variabilité dans les structures de requêtes, selon les institutions.
 
-  - Les deux constantes sont la présence de l'URL de l'hôte, la nécessité d'inclure un identifiant de dataset (ou dataflow), et la clé.
-  
+-   Les deux constantes sont la présence de l'URL de l'hôte, la nécessité d'inclure un identifiant de dataset (ou dataflow), et la clé.
+
 ## Utiliser un portail pour créer sa requête SDMX
 
 Identifier le jeu de données (chaque institution regroupe ses séries à sa propre façon...), récupérer son identifiant, puis comprendre la structure de sa clé et cibler les modalités des dimensions est ce qui prend le plus de temps.
@@ -151,40 +144,38 @@ Ici on peut même carrément copier la requête et la copier, puis lancer la req
 
 ## Construire sa propre requête en restant (autant que possible) sur R.
 
-- Néanmoins, toutes les institutions n'ont pas un portail aussi bien conçu que l'OCDE. Par ailleurs, à terme, on gagne quand même à se familiariser avec la structure d'une API en termes de temps pour construire une nouvelle requête et de compréhension de l'outil qu'on utilise pour récupérer ses données.
+-   Néanmoins, toutes les institutions n'ont pas un portail aussi bien conçu que l'OCDE. Par ailleurs, à terme, on gagne quand même à se familiariser avec la structure d'une API en termes de temps pour construire une nouvelle requête et de compréhension de l'outil qu'on utilise pour récupérer ses données.
 
 La séquence habituelle pour construire sa requête est la suivante :
 
-- Trouver, généralement sur le site de l'institution, le *endpoint* de l'API, sa syntaxe, et les nuances dans les requêtes pour données vs métadonnées de structure.
-- Récupérer la liste de tous les jeux de données : identifier celui qui contient les séries recherchées.
-- Récupérer la DSD de ce jeu de données.
-- Récupérer les codes pour les modalités des dimensions de ce jeu de données.
+-   Trouver, généralement sur le site de l'institution, le *endpoint* de l'API, sa syntaxe, et les nuances dans les requêtes pour données vs métadonnées de structure.
+-   Récupérer la liste de tous les jeux de données : identifier celui qui contient les séries recherchées.
+-   Récupérer la DSD de ce jeu de données.
+-   Récupérer les codes pour les modalités des dimensions de ce jeu de données.
 
+**Ne pas hésiter à s'aider du portail lorsque cela est possible** !
 
-**Ne pas hésiter à s'aider du portail lorsque cela est possible** ! 
+-   Par exemple, pour s'assurer d'être sur le bon jeu de données : l'arborescence d'un portail peut être intuitive et donc faciliter la recherche ; et permet en plus de jeter un coup d'oeil aux valeurs pour vérifier qu'on est au bon endroit.
+-   Ce n'est pas garanti, mais les listes de codes que renvoient les API sont souvent trop larges (par exemple, pour la dimension "Unité" on trouvera 700+ codes différents mélangeants masse, devise, pourcentage...). Sur les portails, seuls les codes pertinents pour une série seront listés.
 
-- Par exemple, pour s'assurer d'être sur le bon jeu de données : l'arborescence d'un portail peut être intuitive et donc faciliter la recherche ; et permet en plus de jeter un coup d'oeil aux valeurs pour vérifier qu'on est au bon endroit.
-- Ce n'est pas garanti, mais les listes de codes que renvoient les API sont souvent trop larges (par exemple, pour la dimension "Unité" on trouvera 700+ codes différents mélangeants masse, devise, pourcentage...). Sur les portails, seuls les codes pertinents pour une série seront listés.
-  
 # Autres remarques
 
 ## DBnomics
 
 DBnomics centralise les données disséminées par un certain nombre d'institutions, du type FMI OCDE ainsi qu'une grande partie des instituts statistiques européens.
 
-- Grand avantage : DBnomics a son propre package, et une manière homogène de formuler des requêtes vers son API. Le site est facile à naviguer et récupérer les identifiants de série, les codes pour filtrer une série etc ne pose pas de problème.
+-   Grand avantage : DBnomics a son propre package, et une manière homogène de formuler des requêtes vers son API. Le site est facile à naviguer et récupérer les identifiants de série, les codes pour filtrer une série etc ne pose pas de problème.
 
-  - En revanche, pour une institution donnée, DBnomics va reproduire son organisation, sa hierarchisation des données, ses noms de variables etc. Donc il faut quand même passer du temps à se familiariser avec ces éléments.
-  
-- Principal défaut de DBnomics : pour certaines API, il peut y avoir des délais dans la mise à jour des données. Parfois, il semble même que DBnomics interrompe son suivi d'une API (l'OCDE pendant quelques mois, par ex.).
+    -   En revanche, pour une institution donnée, DBnomics va reproduire son organisation, sa hierarchisation des données, ses noms de variables etc. Donc il faut quand même passer du temps à se familiariser avec ces éléments.
+
+-   Principal défaut de DBnomics : pour certaines API, il peut y avoir des délais dans la mise à jour des données. Parfois, il semble même que DBnomics interrompe son suivi d'une API (l'OCDE pendant quelques mois, par ex.).
 
 ## Quelques observations sur les API :
 
-- **BCE, BRI** : j'ai peu d'expérience avec, mais elles marchent bien. Leurs portails soient moins bien conçus qu'ESTAT ou l'OCDE, donc construire ses requêtes peut être un peu plus fastidieux.
+-   **BCE, BRI** : j'ai peu d'expérience avec, mais elles marchent bien. Leurs portails soient moins bien conçus qu'ESTAT ou l'OCDE, donc construire ses requêtes peut être un peu plus fastidieux.
 
-- **INE** : on peut construire ses requêtes directement à partir du portail. Il y a un package R (`INEapir`) maintenu par l'INE, avec une *cheat sheet* résumant les fonctionnalités.
+-   **INE** : on peut construire ses requêtes directement à partir du portail. Il y a un package R (`INEapir`) maintenu par l'INE, avec une *cheat sheet* résumant les fonctionnalités.
 
-- **Destatis** : le package `restatis` est utile... Mais le portail n'est pas très bien conçu, et certaines données visibles sur le portail ne sont pas structurées de la même manière sur l'API.
+-   **Destatis** : le package `restatis` est utile... Mais le portail n'est pas très bien conçu, et certaines données visibles sur le portail ne sont pas structurées de la même manière sur l'API.
 
-- **ONS** : leur API est en cours de développement, seule une petite partie de leurs données sont accessibles. Privilégier l'OCDE (ou DBnomics, mais il semble qu'il y ait un délai de plusieurs jours voire une semaine.)
-
+-   **ONS** : leur API est en cours de développement, seule une petite partie de leurs données sont accessibles. Privilégier l'OCDE (ou DBnomics, mais il semble qu'il y ait un délai de plusieurs jours voire une semaine.)

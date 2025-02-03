@@ -10,23 +10,12 @@ library(rsdmx)
 
 # On va chercher à récupérer les comptes nationaux du UK (pour faire simple, les composantes via l'approche demande)
 
-#L'enchaînement basique pour une requête de données correspond généralement au schema suivant :
+# On peut le faire de 2 façons : en s'appuyant sur le portail d'accès données de l'OCDE;
+# OU bien en faisant tout sur R avec rsdmx.
 
-### -> Typiquement directement sur le site ou portail en ligne. https://data-explorer.oecd.org/
-
-#### A strictement parler, cette étape n'est pas nécessaire, et on peut se plonger directement
-#### dans la liste complète des jeux de données que l'API fournit.
-#### En pratique, je trouve ça plus simple de passer par le portail :
+#### En pratique, je trouve ça plus simple de passer par le portail, au moins au début :
 ####  1) On se familiarise avec l'organisation des données, la hierarchisation des concepts...
 ####  2) En réalité avoir le portail ouvert sur un onglet, au moins pour les premières requêtes, peut être très utile.
-
-
-# II. Identification du jeu de données nécessaire
-
-# III. Identification de la structure (DSD) du jeu de données : nombre & ordre de dimensions.
-
-# IV. Formulation de la "clé"("key") de la requête, permettant de filtrer le jeu de données
-## selon les valeurs des dimensions.
 
 
 # Via le portail (data-explorer pour l'OCDE) ------------------------------
@@ -50,6 +39,7 @@ oecd_na_url <- "https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAMAIN1@
 
 
 # Via R ----------------------------------------------------------
+
 
 
 ##### Préambule: structure d'une requête API #### 
@@ -83,8 +73,20 @@ oecd_na_url <- "https://sdmx.oecd.org/public/rest/data/OECD.SDD.NAD,DSD_NAMAIN1@
 ## Après la key vient le filtrage en fonction du temps : "startPeriod=2023-Q3&dimensionAtObservation=AllDimensions" 
 ##  -> cette partie est optionnelle.
 
-#### I. Exploration des données & identification du jeu de données ####
 
+#L'enchaînement basique pour une requête de données correspond généralement au schema suivant :
+
+# I. Exploration des données & identification du jeu de données
+
+# II. Identification du jeu de données nécessaire
+
+# III. Identification de la structure (DSD) du jeu de données : nombre & ordre de dimensions.
+
+# IV. Formulation de la "clé"("key") de la requête, permettant de filtrer le jeu de données
+## selon les valeurs des dimensions.
+
+
+#### Exploration des données & identification du jeu de données ####
 
 #On commence par chercher parmi les datasets :
 
@@ -136,7 +138,7 @@ version <- "1.1/"
 ### inclut directement un outil pour construire ses requêtes --> on reprend le format donné)
 
 
-# Identification de la structure (DSD) ------------------------------------
+##### Identification de la structure (DSD) #####
 
 ## On a l'identifiant du jeu de données : reste maintenant à récupérer sa structure (DSD)
 ## -> En particulier : quelles dimensions, dans quel ordre.
@@ -154,7 +156,7 @@ View(oecd_gdpq_structure)
 ##      -> si on vérifie sur data-explorer, on verra que le menu déroulant n'affiche même pas cette dimension.
 
 
-# Identification des codes ------------------------------------------------
+##### Identification des codes #####
 
 #Encore une fois, ici le plus simple...
 #### SI le site web de l'institution permet d'afficher la requête qui sous-tend la sélection de données
@@ -181,7 +183,7 @@ CL_oecd_transaction |> filter(grepl("gross domestic product", label.en, ignore.c
 
 key <- "Q..GBR.S13+S1M..P7+P6+P51G+P3+B1GQ.....V+L.."
 time_filter <- "?startPeriod=2023-Q3"
-# Formulation de la requête -----------------------------------------------
+##### Formulation de la requête #####
 
 
 # on recolle les morceaux:
